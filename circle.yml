@@ -5,5 +5,4 @@ deployment:
   production:
     branch: master
     commands:
-      - npm install
       - bundle exec middleman s3_sync -b
