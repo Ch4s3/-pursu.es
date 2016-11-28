@@ -7,10 +7,10 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "Middleman" %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.1.0/milligram.css">
+    <link rel="stylesheet" href="stylesheets/site.bundle.css">
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :elm %>
-    <%= javascript_include_tag :all %>
+    <script src="javascripts/site.bundle.js" type="text/javascript"></script>
   </head>
 
   <body>

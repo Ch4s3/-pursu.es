@@ -6,15 +6,15 @@
   "author": "Chase <chase.gilliam@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-brunch": "^6.0.6",
-    "brunch": "^2.8.2",
-    "clean-css-brunch": "~2.0.0",
-    "closure-compiler-brunch": "^0.1.3",
-    "copycat-brunch": "^1.1.0",
-    "css-brunch": "~2.0.0",
-    "javascript-brunch": "~2.0.0",
-    "sass-brunch": "^1.9.2",
-    "uglify-js-brunch": "~2.0.1"
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "2.1.0-beta.27"
   },
   "dependencies": {
     "elm-brunch": "^0.7.0"

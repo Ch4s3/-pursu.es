@@ -1,3 +1,4 @@
+import styles from '../stylesheets/site.css.scss';
 // This is where it all goes :)
 const parseSVG = function parseSVG(svg, width, height) {
 	  let div = document.createElementNS('http://www.w3.org/1999/xhtml', 'div')
@@ -18,7 +19,7 @@ const searchAlgolia = function searchAlgolia(query, app) {
 
 document.addEventListener("DOMContentLoaded", function(event) {
 		//Load the elm app here
-		const elmNode = document.querySelectorAll("#elm-search-container")[0]
+		const elmNode = document.getElementById("elm-search-container")
 		const app = Elm.AlgoliaSearch.embed(elmNode)
 		app.ports.search.subscribe(function(query) {
 			const results = searchAlgolia(query, app)
@@ -36,16 +37,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const raw_svg = json.svg
         const width = json.width
         const height = json.height
-        let container = document.querySelectorAll(".triangle-canvas")[0]
+        let container = document.querySelector(".triangle-canvas")
         let svg = parseSVG(raw_svg, width, height)
-        container.append(svg)
+        container.appendChild(svg)
       } else {
         // We reached our target server,
         // but it returned an error or hasn't completed
       }
     }
     xhr.open('GET', url, true)
-    xhr.setRequestHeader('Content-Type', 'application/json  ');
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = handleResponse
     xhr.send()
 });

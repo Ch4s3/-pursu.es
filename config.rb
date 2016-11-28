@@ -18,9 +18,11 @@ page '/*.txt', layout: false
 
 # General configuration
 activate :external_pipeline,
-  name: :brunch,
-  command: build? ? './node_modules/brunch/bin/brunch build --production --env production' : './node_modules/brunch/bin/brunch watch --stdin',
-  source: "priv/static",
+  name: :webpack,
+  command: build? ?
+  "./node_modules/webpack/bin/webpack.js --bail -p" :
+  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  source: "build",
   latency: 1
 ###
 # Helpers
