@@ -1,5 +1,5 @@
-import styles from '../stylesheets/site.css.scss';
-// This is where it all goes :)
+const Prism = require("./prism.js")
+
 const parseSVG = function parseSVG(svg, width, height) {
 	  let div = document.createElementNS('http://www.w3.org/1999/xhtml', 'div')
 	  div.innerHTML = '<svg width="'+width+'" height="'+height+'">'+svg+'</svg>'
@@ -18,7 +18,6 @@ const searchAlgolia = function searchAlgolia(query, app) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-		//Load the elm app here
 		const elmNode = document.getElementById("elm-search-container")
 		const app = Elm.AlgoliaSearch.embed(elmNode)
 		app.ports.search.subscribe(function(query) {
@@ -28,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		//call serverless for triangle background
     const xhr = new XMLHttpRequest()
     const width = window.innerWidth
-    const height = window.innerHeight/3
+    const oneThird = window.innerHeight/3
+		const height = oneThird + (oneThird/5)
     const url = 'https://imt1ymyrng.execute-api.us-east-1.amazonaws.com/dev/triangles?height='+height+'&width='+width
     const handleResponse = function() {
       if (this.status === 200 && this.readyState === 4) {

@@ -4,7 +4,32 @@
   border-radius: 2px;
   overflow:  hidden;
   background-color: #fafafa;
-  min-width: 344px;
+  //mobile portrait
+  @media only screen and (max-device-width : 320px) {
+    min-width: 85vw;
+  }
+
+  //mobile landscape
+  @media only screen and (min-device-width : 321px) {
+    min-width: 70vw;
+  }
+  //tablet portrait
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    min-width: 50vw;
+  }
+  //tablet landscape
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    min-width: 45vw
+  }
+
+  @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+    min-width: 35rem;
+    max-width: 85vw;
+  }
+  @media screen and (min-device-width: 1400px) {
+    min-width: 35rem;
+    max-width: 45vw;
+  }
 }
 
 // default card image element
@@ -34,6 +59,9 @@
 
 // default card title element
 .card_title {
+  h1 {
+    font-size: 4.2rem;
+  }
   user-select: none;
   font-size: 24px;
   color: $anchor;

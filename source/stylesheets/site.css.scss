@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "normalize";
+@import "media_queries";
 @import "flex";
 @import "variables";
 @import "modifiers";
@@ -18,4 +19,10 @@ body {
 .triangle-canvas {
   z-index: -1;
   height: 20vh;
+  -webkit-transform: skewY(-4deg);
+  -moz-transform: skewY(-4deg);
+  -ms-transform: skewY(-4deg);
+  -o-transform: skewY(-4deg);
+  transform: skewY(-4deg) translateY(-10rem);
+  -webkit-backface-visibility: hidden;
 }

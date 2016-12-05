@@ -9,7 +9,7 @@
 
 # Ignore the build directory and dev build
 /build
-/priv/static
+/tmp
 /source/elm/elm-stuff
 
 # Ignore cache
