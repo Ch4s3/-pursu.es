@@ -2,7 +2,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ClosureCompiler = require("google-closure-compiler-js").webpack;
 const cssLoaders = [
   {
     loader: "css-loader",
@@ -24,13 +23,8 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-         exclude: /(node_modules)/,
+        exclude: /(node_modules)/,
         loader: "babel-loader",
-        query: {
-          presets: [
-            ["es2015", { loose: true, modules: false }]
-          ]
-        }
       },
       {
         test: /\.(sass|scss)$/,
@@ -50,22 +44,14 @@ module.exports = {
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
+      debug: false
     }),
     new ExtractTextPlugin({
-      filename: "../stylesheets/[name].bundle.css",
+      path: __dirname + "/build/stylesheets",
+      filename: "[name].bundle.css",
       disable: false,
       allChunks: true,
     }),
-    new ClosureCompiler({
-      options: {
-        processCommonJsModules: true,
-        createSourceMap: true,
-        languageIn: "ECMASCRIPT6",
-        languageOut: "ECMASCRIPT5",
-        compilationLevel: "ADVANCED",
-        warningLevel: "QUIET",
-      },
-    })
   ],
 };

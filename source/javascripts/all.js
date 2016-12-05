@@ -1,5 +1,3 @@
-const Prism = require("./prism.js")
-
 const parseSVG = function parseSVG(svg, width, height) {
 	  let div = document.createElementNS('http://www.w3.org/1999/xhtml', 'div')
 	  div.innerHTML = '<svg width="'+width+'" height="'+height+'">'+svg+'</svg>'
@@ -19,10 +17,12 @@ const searchAlgolia = function searchAlgolia(query, app) {
 
 document.addEventListener("DOMContentLoaded", function(event) {
 		const elmNode = document.getElementById("elm-search-container")
-		const app = Elm.AlgoliaSearch.embed(elmNode)
-		app.ports.search.subscribe(function(query) {
-			const results = searchAlgolia(query, app)
-		})
+		if (elmNode !== null) {
+			const app = Elm.AlgoliaSearch.embed(elmNode)
+			app.ports.search.subscribe(function(query) {
+				const results = searchAlgolia(query, app)
+			})
+		}
 
 		//call serverless for triangle background
     const xhr = new XMLHttpRequest()

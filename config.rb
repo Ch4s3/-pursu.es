@@ -17,12 +17,11 @@ page "/*.txt", layout: false
 #  which_fake_page: "Rendering a fake page with a local variable" }
 
 # General configuration
-ENV["WEBPACK_ENV"] ||= (build? ? "build" : "development")
 activate :external_pipeline,
   name: :webpack,
   command: build? ?
-  "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --bail -p" :
-  "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  "./node_modules/webpack/bin/webpack.js --bail -p" :
+  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
   source: "build",
   latency: 1
 
@@ -41,7 +40,7 @@ end
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true
 
-activate :syntax
+activate :syntax, line_numbers: true
 
 # Build-specific configuration
 configure :build do

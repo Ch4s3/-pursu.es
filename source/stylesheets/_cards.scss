@@ -4,31 +4,17 @@
   border-radius: 2px;
   overflow:  hidden;
   background-color: #fafafa;
-  //mobile portrait
-  @media only screen and (max-device-width : 320px) {
-    min-width: 85vw;
-  }
+}
 
-  //mobile landscape
-  @media only screen and (min-device-width : 321px) {
-    min-width: 70vw;
+.wide {
+  @include for-desktop-up {
+    min-width: 80vw;
   }
-  //tablet portrait
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-    min-width: 50vw;
-  }
-  //tablet landscape
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-    min-width: 45vw
-  }
+}
 
-  @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
-    min-width: 35rem;
-    max-width: 85vw;
-  }
-  @media screen and (min-device-width: 1400px) {
-    min-width: 35rem;
-    max-width: 45vw;
+.mid {
+  @include for-desktop-up {
+    min-width: 30vw;
   }
 }
 
@@ -60,9 +46,9 @@
 // default card title element
 .card_title {
   h1 {
+    padding-top: 2rem;
     font-size: 4.2rem;
   }
-  user-select: none;
   font-size: 24px;
   color: $anchor;
   margin: 0;
@@ -80,7 +66,6 @@
 
 // default card subtitle element
 .card_subtitle {
-  user-select: none;
   font-size: 14px;
   display: block;
   white-space: nowrap;
@@ -90,7 +75,7 @@
   left: 88px;
   right: 0;
   top: 45px;
-    position: absolute;
+  position: absolute;
   padding: 0 16px;
   opacity: 0;
 }
@@ -98,7 +83,6 @@
 
 // default card text element
 .card_text {
-  user-select: none;
   font-size: 14px;
   display: block;
   left: 0;
@@ -109,13 +93,17 @@
   line-height: 1.6;
   position: absolute;
   color: #000;
-  overflow: hidden;
 }
 
+.card_body {
+  color: $anchor;
+  margin-top: 10rem;
+  font-size: 14px;
+  display: block;
+}
 
 // default card action bar element
 .card_action-bar {
-  user-select: none;
   position: absolute;
   bottom: 0;
   top: auto;

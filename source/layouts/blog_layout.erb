@@ -1,9 +1,18 @@
 <% wrap_layout :layout do %>
   <article>
-    <%= current_page.data.title %>
-
     <section class="content">
-        <%= yield %>
+      <div class="row">
+          <div class="card z-4 wide">
+            <div class="card_title">
+              <h1>
+                <%= current_page.data.title %>
+              </h1>
+            </div>
+            <div class="card_body">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
       </section>
   </article>
 <% end %>

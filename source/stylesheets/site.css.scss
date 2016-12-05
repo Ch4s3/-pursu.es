@@ -1,11 +1,12 @@
 @charset "utf-8";
 @import "normalize";
+@import "variables";
+@import "milligram";
+@import "native";
 @import "media_queries";
 @import "flex";
-@import "variables";
 @import "modifiers";
 @import "cards";
-@import "prism";
 @import "search";
 
 body {
@@ -15,7 +16,9 @@ body {
   font-size: 1em;
   color: $smoke;
 }
-
+//pre {
+//  background-color: #272822;
+//}
 .triangle-canvas {
   z-index: -1;
   height: 20vh;
@@ -25,4 +28,25 @@ body {
   -o-transform: skewY(-4deg);
   transform: skewY(-4deg) translateY(-10rem);
   -webkit-backface-visibility: hidden;
+}
+.highlight {
+  max-width: 70%;
+  overflow-x: scroll;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rouge-gutter.gl{
+  color: #d0d0d0;
+  max-width: 1rem;
+  padding-right: 0;
+  .lineno{
+    padding: 0.2rem;
+  }
+}
+code {
+  table.rouge-table {
+    td {
+      border-bottom: none;
+    }
+  }
 }
