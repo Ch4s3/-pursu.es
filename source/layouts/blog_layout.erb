@@ -2,17 +2,23 @@
   <article>
     <section class="content">
       <div class="row">
-          <div class="card z-4 wide">
-            <div class="card_title">
-              <h1>
-                <%= current_page.data.title %>
-              </h1>
-            </div>
-            <div class="card_body">
-              <%= yield %>
-            </div>
+        <div class="back-button" role="navigation" aria-labelledby="back">
+          <%= link_to "", "/", relative: true, class: "fa fa-chevron-left"%>
+          <div class="tool-tip">
+            Home
           </div>
         </div>
-      </section>
+        <div class="card z-4 wide">
+          <div class="card_title">
+            <h1>
+              <%= current_page.data.title %>
+            </h1>
+          </div>
+          <div class="blog-body">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
   </article>
 <% end %>

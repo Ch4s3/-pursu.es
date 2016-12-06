@@ -1,0 +1,36 @@
+.highlight {
+  overflow-x: scroll;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rouge-code {
+  padding-left: 0;
+}
+
+.rouge-gutter.gl{
+  color: #d0d0d0;
+  max-width: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0;
+  .lineno{
+    padding: 0.2rem;
+  }
+}
+
+pre {
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+code {
+  background: none;
+  table.rouge-table {
+    background-color: $black-swan;
+    border-radius: 0.35rem;
+    td {
+      border-bottom: none;
+    }
+  }
+}

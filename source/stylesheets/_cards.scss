@@ -7,14 +7,27 @@
 }
 
 .wide {
-  @include for-desktop-up {
-    min-width: 80vw;
+  @include x-large-and-up {
+    min-width: 70vw;
   }
 }
 
 .mid {
-  @include for-desktop-up {
-    min-width: 30vw;
+  width: 90vw;
+  @include small-and-down {
+    width: 75vw;
+  }
+  @include med-and-up {
+    width: 60vw;
+  }
+  @include large-and-up {
+    width: 40vw;
+  }
+  @include x-large-and-up {
+    width: 30vw;
+  }
+  @include x-x-large-and-up {
+    width: 20vw;
   }
 }
 
@@ -52,14 +65,10 @@
   font-size: 24px;
   color: $anchor;
   margin: 0;
-  position: absolute;
   left: 0;
   right: 0;
-  padding: 0 16px;
+  padding: 0 1rem;
   font-weight: 400;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   transition: all 200ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
 }
 
@@ -85,21 +94,49 @@
 .card_text {
   font-size: 14px;
   display: block;
-  left: 0;
-  right: 0;
+  text-align: left;
   top: 100px;
-  padding: 16px;
-  margin: 0;
+  padding: 2.25rem;
+
+  max-width: 60%;
   line-height: 1.6;
-  position: absolute;
   color: #000;
+
 }
 
-.card_body {
+.card-body {
+  text-align: left;
   color: $anchor;
-  margin-top: 10rem;
-  font-size: 14px;
+  line-height: 1.6;
+  font-size: 1.5rem;
   display: block;
+  margin-bottom: 2rem;
+
+  .blog-intro{
+    padding: 0.5rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .blog-links {
+    text-align: center;
+  }
+}
+
+.blog-body {
+  h3 {
+    text-align: center;
+  }
+  p {
+    font-size: 1.5rem;
+    padding-left: 2rem;
+  }
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+  color: $anchor;
+  text-align: left;
+  padding: 1rem;
 }
 
 // default card action bar element

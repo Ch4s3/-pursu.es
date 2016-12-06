@@ -1,13 +1,13 @@
 @charset "utf-8";
 @import "normalize";
 @import "variables";
-@import "milligram";
 @import "native";
 @import "media_queries";
 @import "flex";
 @import "modifiers";
 @import "cards";
 @import "search";
+@import "highlighting";
 
 body {
   background: $black-swan;
@@ -16,9 +16,48 @@ body {
   font-size: 1em;
   color: $smoke;
 }
-//pre {
-//  background-color: #272822;
-//}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.9; }
+}
+@keyframes fadeout {
+    from { opacity: 0.9; }
+    to   { opacity: 0; }
+}
+
+.back-button {
+  font-size: 4rem;
+  a {
+    color: white;
+  }
+  a:hover{
+    color: $wine;
+  }
+  .tool-tip {
+    display: block;
+    font-size: 1.2rem;
+    background: rgba(114,114,114,0.95);
+    border-radius: 5px;
+    color: #fff;
+    line-height: 14px;
+    max-width: 170px;
+    padding: 5px 8px;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    animation: fadeout 0.4s;
+    opacity: 0;
+  }
+
+}
+.back-button:hover {
+  .tool-tip {
+    opacity: 0.9;
+    animation: fadein 0.4s;
+  }
+}
+
 .triangle-canvas {
   z-index: -1;
   height: 20vh;
@@ -28,25 +67,4 @@ body {
   -o-transform: skewY(-4deg);
   transform: skewY(-4deg) translateY(-10rem);
   -webkit-backface-visibility: hidden;
-}
-.highlight {
-  max-width: 70%;
-  overflow-x: scroll;
-  margin-left: auto;
-  margin-right: auto;
-}
-.rouge-gutter.gl{
-  color: #d0d0d0;
-  max-width: 1rem;
-  padding-right: 0;
-  .lineno{
-    padding: 0.2rem;
-  }
-}
-code {
-  table.rouge-table {
-    td {
-      border-bottom: none;
-    }
-  }
 }

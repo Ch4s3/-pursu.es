@@ -6,10 +6,13 @@ title: The blog of Chase Gilliam
     <div class="card_title">
       <h1>Chase Pursues</h1>
     </div>
-    <div class="card_text">
+    <div class="card-body">
       <div id="elm-search-container"></div>
-      <p>This is a test to see how well this works, first pass.</p>
-      <div><%= link_to blog.articles.first.title, blog.articles.first %> <%= blog.articles.first.date.strftime('%b %e') %></div>
+      <p class="blog-intro">This is a blog about whatever I happen to be into or doing at the moment.
+        That probably means a lot of code, photography, climbing, and some random
+        odds and ends.
+      </p>
+      <div class="blog-links"><%= link_to blog.articles.first.title, blog.articles.first %> <%= blog.articles.first.date.strftime('%b %e') %></div>
     </div>
   </div>
 </div>

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const oneThird = window.innerHeight/3
 		const height = oneThird + (oneThird/5)
     const url = 'https://imt1ymyrng.execute-api.us-east-1.amazonaws.com/dev/triangles?height='+height+'&width='+width
-    const handleResponse = function() {
+    const handleResponse = function handleResponse() {
       if (this.status === 200 && this.readyState === 4) {
         // Success!
         const json = JSON.parse(this.response)
@@ -38,15 +38,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const width = json.width
         const height = json.height
         let container = document.querySelector(".triangle-canvas")
-        let svg = parseSVG(raw_svg, width, height)
-        container.appendChild(svg)
-      } else {
-        // We reached our target server,
-        // but it returned an error or hasn't completed
+					let svg = parseSVG(raw_svg, width, height)
+				if (container.children.length > 0){
+					container.replaceChild(svg, container.children[0])
+				} else {
+        	container.appendChild(svg)
+				}
       }
     }
     xhr.open('GET', url, true)
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = handleResponse
     xhr.send()
+		window.addEventListener("orientationchange", function() {
+			xhr.open('GET', url, true)
+	    xhr.setRequestHeader('Content-Type', 'application/json');
+	    xhr.onreadystatechange = handleResponse
+	    xhr.send()
+		}, false);
 });
