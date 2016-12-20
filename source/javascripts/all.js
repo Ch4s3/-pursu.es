@@ -8,7 +8,11 @@ const searchAlgolia = function searchAlgolia(query, app) {
 	var index = client.initIndex('posts')
 	index.search(query)
 		.then(function searchSuccess(content) {
-			app.ports.results.send(content)
+			if (content.query === ""){
+				app.ports.results.send({query:"",hits: []})
+			} else {
+				app.ports.results.send(content)
+			}
 		})
 		.catch(function searchFailure(err) {
 			console.error(err)

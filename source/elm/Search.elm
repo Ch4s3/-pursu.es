@@ -4,7 +4,6 @@ import Html exposing (..)
 import Html as App
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import String
 
 
 main =
@@ -39,6 +38,7 @@ type alias Hit =
     }
 
 
+emptyAlgoliaResult : AlgoliaResult
 emptyAlgoliaResult =
     (AlgoliaResult "" [])
 
@@ -76,7 +76,10 @@ update msg model =
 
 toHtmlList : AlgoliaResult -> Html msg
 toHtmlList result =
-    ul [] (List.map toLi result.hits)
+    if List.isEmpty result.hits then
+        div [] []
+    else
+        ul [] (List.map toLi result.hits)
 
 
 toLi : Hit -> Html msg

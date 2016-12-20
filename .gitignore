@@ -23,3 +23,5 @@ npm-debug.*
 .DS_Store
 
 .s3_sync
+
+secrets.yml
