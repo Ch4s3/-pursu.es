@@ -4,11 +4,12 @@
   border-radius: 2px;
   overflow:  hidden;
   background-color: #fafafa;
+  margin-bottom: 2rem;
 }
 
 .wide {
   @include x-large-and-up {
-    min-width: 70vw;
+    min-width: 60vw;
   }
 }
 

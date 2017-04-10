@@ -1,14 +1,10 @@
-.forty_vh {
-  min-height: 30rem;
-}
-
 .shift_up {
   position: relative;
   top: -2rem;
 }
 .shift_down {
-  //position: relative;
-  //top: 1rem;
+  position: relative;
+  top: 1rem;
 }
 
 .z-1 { box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37); }

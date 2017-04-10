@@ -28,12 +28,10 @@ module.exports = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: [{
-          loader: ExtractTextPlugin.extract({
-            fallbackLoader: ["style-loader"],
-            loader: cssLoaders
-          }), //end ExtractTextPlugin loader
-        }],
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
     ],//end rules
   },
@@ -48,8 +46,9 @@ module.exports = {
       debug: false
     }),
     new ExtractTextPlugin({
-      path: __dirname + "/build/stylesheets",
-      filename: "[name].bundle.css",
+      filename:  (getPath) => {
+        return getPath("[name].bundle.css").replace("css/js", "css");
+      },
       disable: false,
       allChunks: true,
     }),
