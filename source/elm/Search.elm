@@ -35,6 +35,7 @@ type alias Hit =
     { text : String
     , title : String
     , tags : List String
+    , article_link : String
     }
 
 
@@ -84,7 +85,7 @@ toHtmlList result =
 
 toLi : Hit -> Html msg
 toLi hit =
-    li [] [ text hit.title ]
+    li [] [ a [ href hit.article_link ] [ text hit.title ] ]
 
 
 
