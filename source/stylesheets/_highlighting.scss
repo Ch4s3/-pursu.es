@@ -1,5 +1,4 @@
 .highlight {
-  overflow-x: scroll;
   margin-left: auto;
   margin-right: auto;
 }
@@ -17,20 +16,28 @@
     padding: 0.2rem;
   }
 }
+code {
+  background: $smoke;
+  white-space: normal;
+}
 
 pre {
   background: none;
   border: none;
-  margin: 0;
-}
-
-code {
-  background: none;
-  table.rouge-table {
-    background-color: $black-swan;
+  margin: 1rem 0;
+  padding-left: 2rem;
+  code {
+    overflow-x: scroll;
     border-radius: 0.35rem;
-    td {
-      border-bottom: none;
+    background-color: $black-swan;
+    padding: 0;
+    font-size: 1.45rem;
+    table.rouge-table {
+      margin-bottom: 0;
+      td {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
     }
   }
 }
