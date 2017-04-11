@@ -13,7 +13,11 @@
     <%= javascript_include_tag "site.bundle.js" %>
     <%= javascript_include_tag "elm.js" %>
   </head>
-
+  <nav>
+    <% unless current_page.url == "/" %>
+      <a class="button button-outline home-button" href="/" >home</a>
+    <% end %>
+  </nav>
   <body>
     <div class="triangle-canvas"></div>
     <main class="container">

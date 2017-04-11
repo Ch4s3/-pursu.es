@@ -8,8 +8,8 @@ const searchAlgolia = function searchAlgolia(query, app) {
 	var index = client.initIndex('posts')
 	index.search(query)
 		.then(function searchSuccess(content) {
-			if (content.query === ""){
-				app.ports.results.send({query:"",hits: []})
+			if (content.query === ''){
+				app.ports.results.send({query: '',hits: []})
 			} else {
 				app.ports.results.send(content)
 			}
@@ -19,8 +19,8 @@ const searchAlgolia = function searchAlgolia(query, app) {
 		});
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-		const elmNode = document.getElementById("elm-search-container")
+document.addEventListener('DOMContentLoaded', function(event) {
+		const elmNode = document.getElementById('elm-search-container')
 		if (elmNode !== null) {
 			const app = Elm.AlgoliaSearch.embed(elmNode)
 			app.ports.search.subscribe(function(query) {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const raw_svg = json.svg
         const width = json.width
         const height = json.height
-        let container = document.querySelector(".triangle-canvas")
+        let container = document.querySelector('.triangle-canvas')
 					let svg = parseSVG(raw_svg, width, height)
 				if (container.children.length > 0){
 					container.replaceChild(svg, container.children[0])
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = handleResponse
     xhr.send()
-		window.addEventListener("orientationchange", function() {
+		window.addEventListener('orientationchange', function() {
 			xhr.open('GET', url, true)
 	    xhr.setRequestHeader('Content-Type', 'application/json');
 	    xhr.onreadystatechange = handleResponse

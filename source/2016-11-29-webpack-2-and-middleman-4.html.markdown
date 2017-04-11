@@ -183,7 +183,3 @@ like me, then its probably worth the effort. If you'd like to see this blog's
 source, it's [here](https://github.com/Ch4s3/-pursu.es) on Github.
 
 If you would like to learn more about Webpack, they have a great [tutorial](https://webpack.js.org/guides/get-started/) and docs.
-
----
-If you enjoyed this post, follow me on twitter [@ChaseGilliam](https://twitter.com/ChaseGilliam),
-or on [Github](https://github.com/Ch4s3). Sometimes I'm funny.

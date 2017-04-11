@@ -7,10 +7,22 @@
   margin-bottom: 2rem;
 }
 
-.wide {
+.fill-screen {
+  width: 95vw;
+  @include small-and-down {
+    width: 85vw;
+  }
+  @include med-and-up {
+    width: 60vw;
+  }
+  @include large-and-up {
+    width: 70vw;
+  }
   @include x-large-and-up {
-    min-width: 60vw;
-    max-width: 80vw;
+    width: 65vw;
+  }
+  @include x-x-large-and-up {
+    width: 60vw;
   }
 }
 
@@ -129,7 +141,9 @@
 .blog-body {
   h1, h2, h3, h4, h5, h6 {
     color: $anchor;
-    padding-left: 2rem;
+    @include med-and-up {
+      padding-left: 2rem;
+    }
   }
   h3 {
     text-align: center;
@@ -137,7 +151,9 @@
   p {
     color: $anchor;
     font-size: 1.75rem;
-    padding-left: 2rem;
+    @include med-and-up {
+      padding-left: 2rem;
+    }
     em {
       font-size: 1.4rem;
     }

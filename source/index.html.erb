@@ -12,7 +12,9 @@ title: The blog of Chase Gilliam
         That probably means a lot of code, photography, climbing, and some random
         odds and ends.
       </p>
-      <div class="blog-links"><%= link_to blog.articles.first.title, blog.articles.first %> <%= blog.articles.first.date.strftime('%b %e') %></div>
+      <% blog.articles[0...5].each do |article| %>
+        <div class="blog-links"><%= link_to article.title, article %> <%= article.date.strftime('%b %e') %></div>
+      <% end %>
     </div>
   </div>
 </div>
