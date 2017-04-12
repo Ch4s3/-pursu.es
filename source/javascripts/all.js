@@ -30,14 +30,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 		const dropButton = document.getElementById('nav').getElementsByClassName('drop-down-button')[0]
 		const dropDown = document.getElementById('nav').getElementsByClassName('drop-down')[0]
-		if(dropButton) {
-			dropButton.addEventListener('click', function() {
+		if(dropButton && dropDown) {
+			dropDown.addEventListener('click', function(e){
+				e.stopPropagation();
+			})
+			dropButton.addEventListener('click', function(e) {
+				e.stopPropagation();
+				dropButton.classList.toggle('show-bkg');
 				dropDown.classList.toggle('open');
 			});
-			dropButton.onblur = function () {
+			document.getElementsByTagName('body')[0].addEventListener('click', function() {
+				dropButton.classList.remove('show-bkg');
 				dropDown.classList.remove('open');
-			}
+			});
 		}
+
 		//call serverless for triangle background
     const xhr = new XMLHttpRequest()
     const width = window.innerWidth
