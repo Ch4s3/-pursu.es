@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			})
 		}
 
+		const dropButton = document.getElementById('nav').getElementsByClassName('drop-down-button')[0]
+		const dropDown = document.getElementById('nav').getElementsByClassName('drop-down')[0]
+		if(dropButton) {
+			dropButton.addEventListener('click', function() {
+				dropDown.classList.toggle('open');
+			});
+			dropButton.onblur = function () {
+				dropDown.classList.remove('open');
+			}
+		}
 		//call serverless for triangle background
     const xhr = new XMLHttpRequest()
     const width = window.innerWidth

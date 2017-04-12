@@ -1,7 +1,7 @@
 ---
 title: Webpack 2 and Middleman 4
 date: 2016-11-29 14:57 UTC
-tags: webpack, middleman, javascript
+tags: webpack, middleman, ruby, javascript
 ---
 
 ### A quick guide to using Webpack 2 with Middleman 4

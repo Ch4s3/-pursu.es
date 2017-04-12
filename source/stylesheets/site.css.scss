@@ -8,26 +8,8 @@
 @import "cards";
 @import "search";
 @import "highlighting";
+@import "nav";
 
-nav {
-  z-index: 1000;
-  position: absolute;
-  @include large-and-up {
-    position: fixed;
-  }
-  left: 1rem;
-  top: 1rem;
-  a.home-button {
-    left: 1rem;
-    top: 1rem;
-    color: white !important;
-    border: 0.125rem solid white;
-    &:hover {
-      border: 0.125rem solid #9b4dca !important;
-      color: #9b4dca !important;
-    }
-  }
-}
 body {
   background: $black-swan;
   text-align: center;
