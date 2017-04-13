@@ -1,7 +1,7 @@
 ---
 title: Recursive Descent Parsers in Elixir Part 1
 date: 2017-04-11 14:08 UTC
-tags:
+tags: elixir, parsing
 ---
 
 ### What is a Recursive Descent Parser & Why Write One in Elixir ###
