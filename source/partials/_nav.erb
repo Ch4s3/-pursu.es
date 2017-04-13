@@ -1,0 +1,6 @@
+<nav id="nav">
+  <% unless current_page.url == "/" %>
+    <a class="button button-outline home-button" href="/" >home</a>
+  <% end %>
+  <%= partial "partials/dropdown" %>
+</nav>

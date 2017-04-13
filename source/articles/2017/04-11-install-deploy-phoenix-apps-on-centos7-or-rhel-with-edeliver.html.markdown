@@ -3,7 +3,27 @@ title: Install & Deploy Phoenix Apps on Centos7 or RHEL with edeliver
 date: 2017-04-11 23:48 UTC
 tags: elixir, phoenix, linux, devops, edeliver
 ---
-The origional gist can be found [here](https://gist.github.com/Ch4s3/77f5946972f7677b0ab4e3a9d9e22729)
+*The original gist can be found [here](https://gist.github.com/Ch4s3/77f5946972f7677b0ab4e3a9d9e22729)*
+
+Sometimes you find yourself with a set of requirements that lead in a
+direction that take you out of your comfort zone. Recently I was tasked with
+setting up deployment for a Phoenix app on a RHEL server that I wouldn't be
+able to directly access for security/compliance reasons. Normally I would use
+Docker in a situation like this and pass off the credentials and a working
+Dockerfile, but the ops team on the other end "doesn't do Docker".
+Remembering that Erlang/OTP releases are a great feature of the ecosystem,
+I decided it was time to learn how to use [edeliver](https://github.com/boldpoker/edeliver),
+and [Distillery](https://github.com/bitwalker/distillery).
+
+What follows is adapted slightly from a set of instructions I sent to the ops
+people responsible for deploying this particular Phoenix app. As such, the
+formatting and typesetting *(can you call it that on the web?)* is not great.
+The instructions are presented mostly as is, and without a lot of
+explanation. If you're following along, feel free to email me, or check out
+the [Elixir Forum thread](https://elixirforum.com/t/need-help-deploying-to-red-hat-enterprise-linux-rhel/3241)
+where I was first stumbling through this. Also, if you find any mistakes,
+let me know so I can fix this post.
+
 **Set the environment variables**
 
 Install nano(or not if you intend to use vi)
@@ -47,6 +67,7 @@ Run `source ~/.profile` and check `env` to make sure everything is set.
 ```
 
 **Install Nodejs and Yarn**
+
 ```bash
   curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
   wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
@@ -56,6 +77,7 @@ Run `source ~/.profile` and check `env` to make sure everything is set.
 ```
 
 **Download and Install Elixir**
+
 ```bash
   cd /tmp && \
   wget https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip && \
@@ -65,6 +87,7 @@ Run `source ~/.profile` and check `env` to make sure everything is set.
 
 **Set Elixir on the path**
 Open `~/.bashrc` with `nano ~/.bashrc` and add the following:
+
 ```
   export PATH="$PATH:/usr/local/elixir/bin"
 ```
@@ -76,7 +99,9 @@ Test the install by running `iex`.
 If it works enter `ctrl-c` twice to exit.
 
 **Install Hex and Phoenix**
+
 Run the following:
+
 ```bash
   yes | mix local.hex
   yes | mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez
@@ -88,6 +113,7 @@ Enter `ctrl-d` to return to you system's terminal.
 **Clone the Repo**
 
 In you desired directory run:
+
 ```bash
   git clone git@github.com:YOUR_REPO/YOUR_APP.git
 ```
@@ -95,7 +121,9 @@ In you desired directory run:
 
 **Get and compile the dependencies**
 
-Run `mix deps.get`
+```
+  mix deps.get
+```
 
 **Check the edeliver config**
 
@@ -106,6 +134,7 @@ Make sure edeliver is configured correctly.
 ```
 
 Check the following:
+
 ```
   BUILD_HOST="server ip address goes here"
   BUILD_USER="server user name for deployment goes here"
@@ -119,7 +148,10 @@ Run `mix phoenix.gen.secret` and copy the output for the next step.
 
 **SSH back into the server**
 
-Create a production secrets file at `/home/$BUILD_USER/build_files/prod.secret.exs` where `$BUILD_USER` is the server's deployment user.
+Create a production secrets file at
+`/home/$BUILD_USER/build_files/prod.secret.exs`
+
+`$BUILD_USER` is the server's deployment user.
 
 The file should contain the following
 
@@ -141,6 +173,10 @@ The file should contain the following
 ```
 
 **Exit the server**
+
+```
+  exit
+```
 
 **Build the First Release**
 
@@ -205,4 +241,5 @@ The last result should look like:
   PING DONE!
 ```
 
-If it does, you're all set! Otherwise, head over to the [Elixir Forums](https://elixirforum.com/t/need-help-deploying-to-red-hat-enterprise-linux-rhel) and hit us with a question.
+If it does, you're all set! Otherwise, head over to the [Elixir Forum thread](https://elixirforum.com/t/need-help-deploying-to-red-hat-enterprise-linux-rhel)
+mentioned at the beginning, and hit us with a question.

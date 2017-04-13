@@ -8,6 +8,7 @@
   border-bottom-right-radius: 0.4rem;
 }
 #elm-search-container li {
+  display: grid;
   padding: 0.5rem;
   list-style: none;
   &:hover {

@@ -15,7 +15,7 @@ module Middleman
     end
 
     def after_build(builder)
-      Dir.glob("source/*.markdown") do |markdown_file|
+      Dir.glob("source/articles/*/*.markdown") do |markdown_file|
         markdown_post = File.open(markdown_file).read
         article_meta_data = YAML.load(markdown_post.lines[1..3].join("\n"))
         title = article_meta_data["title"]

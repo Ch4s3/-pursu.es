@@ -2,7 +2,7 @@
 # the following line to use "http://"
 source "https://rubygems.org"
 # Middleman Gems
-gem "middleman", "~>4.1.0"
+gem "middleman", "~>4.2.1"
 gem "middleman-blog", "~> 4.0"
 gem "middleman-minify-html"
 gem "middleman-syntax"

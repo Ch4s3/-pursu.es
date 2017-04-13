@@ -1,0 +1,24 @@
+<div class="row main-box-row">
+  <div class="card z-4 wide">
+    <div class="card_title">
+      <h1>Topics</h1>
+    </div>
+    <div class="card-body">
+      <ul class="tag-list">
+        <% blog.tags.each do |tag, articles| %>
+          <li>
+            <h4><%= tag %></h4>
+            <ul>
+              <% articles.each do |article| %>
+                <li><a href="<%= article.url %>"><%= article.title %></a></li>
+              <% end %>
+            </ul>
+            <% unless tag == blog.tags.keys.last %>
+              <hr>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,21 @@
 nav {
   z-index: 1000;
   position: absolute;
+  width: 100%;
   @include large-and-up {
     position: fixed;
   }
+
   a.home-button {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
+    float: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    @include large-and-up {
+      margin: 0;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+    }
     color: white !important;
     border: 0.125rem solid white;
     &:hover {
@@ -17,9 +25,14 @@ nav {
   }
 }
 .drop-down-nav {
-  position: fixed;
+  float: right;
+  @include large-and-up {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+  }
   top: 1rem;
-  right: 2rem;
+  right: 1rem;
   .icon{
     circle{
       fill:grey;
@@ -55,7 +68,10 @@ nav {
     opacity: 0;
     position: absolute;
     list-style: none;
-    top: calc(100% - 0.5rem);
+    top: 2.75rem;
+    @include large-and-up {
+      top: calc(100% - 0.5rem);
+    }
     text-align: left;
     background: white;
     width: 0;

@@ -33,8 +33,7 @@ activate :sync
 
 activate :blog do |blog|
   blog.permalink = "/{title}.html"
-  blog.sources = "{year}-{month}-{day}-{title}.html"
-  blog.taglink = "categories/{tag}.html"
+  blog.sources = "articles/{year}/{month}-{day}-{title}.html"
   blog.summary_length = 250
   blog.layout = "blog_layout"
 end

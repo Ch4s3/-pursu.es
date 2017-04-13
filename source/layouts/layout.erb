@@ -13,12 +13,7 @@
     <%= javascript_include_tag "site.bundle.js" %>
     <%= javascript_include_tag "elm.js" %>
   </head>
-  <nav id="nav">
-    <% unless current_page.url == "/" %>
-      <a class="button button-outline home-button" href="/" >home</a>
-    <% end %>
-    <%= partial "dropdown" %>
-  </nav>
+  <%= partial "partials/nav" %>
   <body>
     <div class="triangle-canvas"></div>
     <main>
@@ -27,5 +22,5 @@
       </div>
     </main>
   </body>
-  <%= partial "analytics" %>
+  <%= partial "partials/analytics" %>
 </html>

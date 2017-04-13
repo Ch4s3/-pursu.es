@@ -100,7 +100,13 @@
   font-size: 1.75rem;
   display: block;
   margin-bottom: 2rem;
-
+  .text-block {
+    padding: 2rem;
+    font-weight: 300;
+    i {
+      font-size:1rem;
+    }
+  }
   .blog-intro{
     padding: 0.5rem;
     max-width: 90%;
