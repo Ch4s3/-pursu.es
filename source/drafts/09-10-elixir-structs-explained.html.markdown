@@ -27,13 +27,10 @@ we have a a frame of reference to build upon. Similar to Elixir, Ruby has
 o be used as a key, generally you would use strings, atoms, or numbers as keys,
 but there's no such limitation. However, as a best practice one should not use
 a mutable object as a key, because that breaks the associative property of the
-data structure. Python has [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
-which function similarly, but require immutable keys *(in contrast to Ruby)*.
-Both languages are distinct from Elixir in that their maps are mutable. Clojure
-offers a map implementation that's immutable like Elixir's map. If you're more
-familiar with JavaScript, it has "objects" that are essentially like mutable
-associative arrays and structs at the same time. There's a reason JSON has
-become the de facto serialization format of the web.
+data structure. Ruby, while visually similar, differs from Elixir in that 
+maps are mutable. Clojure offers a map implementation that's immutable like 
+Elixir's map. If you're more OCaml, continuing the functional trend, has options
+for both mutable and immutable structures. 
 
 ###Maps in Comparison###
 
@@ -204,6 +201,7 @@ similarly, but with their own flavors in different languages we are better
 positioned to understand what structs offer in addition to the functionality
 of maps, and how they differ significantly from maps.
 
+While the differences are important, structs look very similar to maps
 * establish similarities
 * establish differences
 * metnion the Access protocol and how its invoked via the __struct__ key

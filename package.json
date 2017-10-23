@@ -19,5 +19,6 @@
     "webpack": "2.3.3"
   },
   "dependencies": {
+    "turbolinks": "^5.0.3"
   }
 }

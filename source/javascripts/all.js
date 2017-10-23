@@ -1,11 +1,14 @@
+const Turbolinks = require("turbolinks")
+Turbolinks.start()
+
 const parseSVG = function parseSVG(svg, width, height) {
 	  let div = document.createElementNS('http://www.w3.org/1999/xhtml', 'div')
 	  div.innerHTML = '<svg width="'+width+'" height="'+height+'">'+svg+'</svg>'
 	  return div.firstChild;
 }
 const searchAlgolia = function searchAlgolia(query, app) {
-	var client = algoliasearch("YW7090F15U", 'ecc64ef6f9594c209c3ec27b1cbc2511')
-	var index = client.initIndex('posts')
+	const client = algoliasearch("YW7090F15U", 'ecc64ef6f9594c209c3ec27b1cbc2511')
+	const index = client.initIndex('posts')
 	index.search(query)
 		.then(function searchSuccess(content) {
 			if (content.query === ''){
@@ -19,7 +22,7 @@ const searchAlgolia = function searchAlgolia(query, app) {
 		});
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('turbolinks:load', function(event) {
 	const elmNode = document.getElementById('elm-search-container')
 	if (elmNode !== null) {
 		const app = Elm.AlgoliaSearch.embed(elmNode)
