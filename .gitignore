@@ -11,7 +11,7 @@
 /build
 /tmp
 /source/elm/elm-stuff
-
+/source/drafts
 # Ignore cache
 /.sass-cache
 /.cache
