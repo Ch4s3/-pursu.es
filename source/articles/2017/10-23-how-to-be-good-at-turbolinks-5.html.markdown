@@ -19,7 +19,7 @@ way Turbolinks does *(This is an idea that is perhaps worth revisiting later)*.
 
 ### How to use Turbolinks Well
 
-The first major step towards using Turbolinks in an effective manor is to commit to using `turbolinks:load` instead of `.ready()` or `DOMContentLoaded`. This sounds easy, but may require a bit of thought and discipline. You will additionally need to make sure that any code executed during the load event is [idempotent](https://en.wikipedia.org/wiki/Idempotence), meaning htat they may be executed multiple times without changing their results. If you run into a problem with Turbolinks early on, it is most likely due to the execution of code that isn't idempotent during the load event. With those two things in mind, make sure you aren't using third party JavaScript libraries that violate the previous two rules.
+The first major step towards using Turbolinks in an effective manner is to commit to using `turbolinks:load` instead of `.ready()` or `DOMContentLoaded`. This sounds easy, but may require a bit of thought and discipline. You will additionally need to make sure that any code executed during the load event is [idempotent](https://en.wikipedia.org/wiki/Idempotence), meaning that they may be executed multiple times without changing their results. If you run into a problem with Turbolinks early on, it is most likely due to the execution of code that isn't idempotent during the load event. With those two things in mind, make sure you aren't using third party JavaScript libraries that violate the previous two rules.
 
 #### Getting Started
 
@@ -50,7 +50,7 @@ If you're using Turbolinks with Rails and [Sprockets](https://github.com/rails/s
 
 ####With Webpacker and React
 
-Recently I've been using Rails 5.1.4, with [Webpacker](https://github.com/rails/webpacker), in palce of Sprockets, to handle my JavaScript, and have found that Turbolinks still fits well with the Rails model of server rendered HTML, even if you're sprinkling in some react components and using Webpack. If you are starting a new project, and do not need to use old jQuery plugins or frameworks that rely on clean global scope, you can set up Turbolinks and start seeing the benefits with very little work beyond the initial configuration. 
+Recently I've been using Rails 5.1.4, with [Webpacker](https://github.com/rails/webpacker), in place of Sprockets, to handle my JavaScript, and have found that Turbolinks still fits well with the Rails model of server rendered HTML, even if you're sprinkling in some react components and using Webpack. If you are starting a new project, and do not need to use old jQuery plugins or frameworks that rely on clean global scope, you can set up Turbolinks and start seeing the benefits with very little work beyond the initial configuration. 
 
 You can start a new project with webpacker and Turbolinks by running:
 
