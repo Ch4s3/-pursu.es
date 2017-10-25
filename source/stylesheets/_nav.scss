@@ -33,22 +33,23 @@ nav {
   }
   top: 1rem;
   right: 1rem;
-  .icon{
-    circle{
+  .icon {
+    circle {
       fill:grey;
     }
   }
+
   button.drop-down-button {
     height: 3.5rem;
+    width: 3.5rem;
     padding: 0;
     -webkit-font-smoothing:antialiased;
-    display:block;
-    margin:auto;
-    background:transparent;
-    border:0;
-    outline:0;
-    cursor:pointer;
-    position:relative;
+    margin: 2rem 1rem 0 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    position: relative;
     .icon circle {
       fill: white;
     }
