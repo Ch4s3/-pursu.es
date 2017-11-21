@@ -25,3 +25,5 @@ npm-debug.*
 .s3_sync
 
 secrets.yml
+
+.vscode
