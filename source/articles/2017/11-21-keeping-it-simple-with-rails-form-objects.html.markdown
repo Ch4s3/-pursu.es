@@ -47,6 +47,43 @@ My other form objects inherit from `FormObject`, and will generally define their
     end
   end
 ```
-* I've removed the doc lines and some caching logic for brevity, if you would like to view the original, it is available [here](https://github.com/Ch4s3/ink_stream/blob/ab0ffd0b838d6bb441f0b201a1da49436205ace0/app/forms/articles_search_form.rb)
+*I've removed the doc lines and some caching logic for brevity, if you would like to view the original, it is available [here](https://github.com/Ch4s3/ink_stream/blob/ab0ffd0b838d6bb441f0b201a1da49436205ace0/app/forms/articles_search_form.rb)*
 
-The line `@publications = publications ? publications : top_ten` would  be problematic if it were in either the controller or the view.
+Consider the following line: 
+
+```ruby
+  @publications = publications ? publications : top_ten
+```  
+
+
+It would  be problematic if it were in either the controller or the view. If it were in the controller then you would need to find a place to put the query, or turn the nice ternary into a longer `if...else`. The ternary is nice and concise here an allows us to keep the assignment on one line, so it makes sense to keep that. Now, we could place the query on the model which would be valid, but someone might start using it somewhere else. If that happens, a refactoring could break our search form's select box for publications. So I think keeping this line with the presentation logic makes sense. This is a nice advantage of thr Form Object.
+
+Since all of our logic is packaged together, and we have some sane defaults, we can just initialize the class in our controller for the most basic case. If we had business logic in the future that changed any of those defaults conditionally, we could pass that data into the class and keep our presentation logic cleanly separated. 
+
+You can see the simplicity of the initialization below:
+
+```ruby
+  def search
+    @articles_search_form = ArticlesSearchForm.new
+  end
+```
+*view the whole file [here](https://github.com/Ch4s3/ink_stream/blob/ab0ffd0b838d6bb441f0b201a1da49436205ace0/app/controllers/articles_controller.rb)*
+
+Now that we have our object in place, we can pass it to a view template that makes use of `form_for`. As you can see, there is no logic in the view, and we can simply fill in the select box with `@articles_search_form.publications`.
+
+```erb
+  <%= form_for @articles_search_form, url: {action: "results"}, method: "get" do |f| %>
+    <fieldset>
+      <%= f.label(:publications)%>
+      <%= f.select(:publications, @articles_search_form.publications) %>
+      <%= f.label(:title)%>
+      <%= f.text_field :title %>
+      <%= f.submit "Search", class: "button button-outline" %>
+    </fieldset>
+  <% end %>
+  ```
+  *view the whole file [here](https://github.com/Ch4s3/ink_stream/blob/ab0ffd0b838d6bb441f0b201a1da49436205ace0/app/views/articles/search.html.erb)*
+
+  The form used in this view is by the books, and should be easy to maintain, since it only relies on receiving an object that includes `ActiveModel::Model` and has the fields title, and publications. The handling of the form's data on post is similarly straightforward, and uses a Service Object, which I might cover in a later post.
+
+  Hopefully this was a helpful introduction to form objects, and the encapsulation of presentation logic.

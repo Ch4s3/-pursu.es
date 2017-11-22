@@ -23,7 +23,7 @@ The first major step towards using Turbolinks in an effective manner is to commi
 
 #### Getting Started
 
-Althought Turbolinks is associated with Rails, you can install it as a node_module or via a
+Although Turbolinks is associated with Rails, you can install it as a node_module or via a
 CDN. If you use a CDN and a script tag as shown below, Turbolinks will initialize itself and you are
 all set.
 

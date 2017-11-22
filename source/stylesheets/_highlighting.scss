@@ -17,8 +17,10 @@
   }
 }
 code {
-  background: $smoke;
-  white-space: normal;
+  background: $black-swan;
+  color: #d0d0d0;
+  padding: 0.2rem;
+  font-family: monospace;
 }
 
 pre {
@@ -29,6 +31,7 @@ pre {
     padding-left: 2rem;
   }
   code {
+    font-family: monospace;
     overflow-x: scroll;
     border-radius: 0.35rem;
     background-color: $black-swan;

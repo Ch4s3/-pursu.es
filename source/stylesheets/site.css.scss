@@ -14,7 +14,8 @@
 body {
   background: $black-swan;
   text-align: center;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica", "Helvetica Neue", "Lato", "Arial", "sans-serif";
+  font-weight: 325;
   font-size: 1em;
   color: $smoke;
 }
@@ -28,38 +29,6 @@ body {
     to   { opacity: 0; }
 }
 
-//.back-button {
-//  font-size: 4rem;
-//  a {
-//    color: white;
-//  }
-//  a:hover{
-//    color: $wine;
-//  }
-//  .tool-tip {
-//    display: block;
-//    font-size: 1.2rem;
-//    background: rgba(114,114,114,0.95);
-//    border-radius: 5px;
-//    color: #fff;
-//    line-height: 14px;
-//    max-width: 170px;
-//    padding: 5px 8px;
-//    position: absolute;
-//    z-index: 100;
-//    text-align: center;
-//    animation: fadeout 0.4s;
-//    opacity: 0;
-//  }
-
-//}
-//.back-button:hover {
-//  .tool-tip {
-//    opacity: 0.9;
-//    animation: fadein 0.4s;
-//  }
-//}
-
 hr {
   border-top: 0.1rem solid #a155d2;
 }
@@ -72,5 +41,6 @@ hr {
   -ms-transform: skewY(-4deg);
   -o-transform: skewY(-4deg);
   transform: skewY(-4deg) translateY(-10rem);
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
