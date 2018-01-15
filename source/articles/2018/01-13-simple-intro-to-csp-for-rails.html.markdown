@@ -52,3 +52,11 @@ Most new browsers implement some simple XSS protections that overlaps the functi
 
 The meat of the config deals with the core `Content-Security-Policy` header config defined by `config.csp = {...}` The `default-src` serves as a fallback for the directives that you define after it, as the name implies it is a default. The ternary used in the example forces https in production, but not in development, which is convenient, and it allows inlining scripts and styles in development which is often useful for development tools.
 
+The `connect-src` directive determines which urls may be loaded by JavaScript on the page. If you are using web sockets or any scripts that connect to 3rd parties, you will need to edit this directive.
+
+Loading fonts and images is pretty straightforward with respect to CSP, and the `font-src`
+and `img-src` directives above demonstrate how to use google fonts and images hosted on Cloudinary. If you use similar services or a CDN, you should be ale to use this is a template.
+
+JavaScript is controlled by the `script-src` directive, and it probably has the most profound implications withing the set of directives covered here. Most of a sites XSS risk will be related to how it loads and uses JavaScript. You should generally avoid using `unsafe-eval` unless you know what you're doing. Depending upon your needs and browser target you may use `unsafe-inline` to allow inlining JavaScript in HTML. There is some risk, and you should be informed before using this setting. Check out [this](https://stackoverflow.com/questions/8502307/chrome-18-how-to-allow-inline-scripting-with-a-content-security-policy/38554505#38554505) StackOverflow discussion for more info.
+
+This is a very brief overview of how to set CSP headers for Rails < 5.2 and can be adapted to Sinatra. As with any security settings, you shouldn't copy my snippet directly, and should do a bit more reading, however the Secure Headers gem is relatively simple to use and is a nice security upgrade after you have set up HTTPS. I'll follow up later with an article about Rails 5.2 specifically once it is released.
