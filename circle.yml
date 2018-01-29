@@ -1,8 +1,0 @@
-machine:
-  ruby:
-    version: 2.3.3
-deployment:
-  production:
-    branch: master
-    commands:
-      - bundle exec middleman s3_sync
