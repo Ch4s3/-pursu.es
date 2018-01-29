@@ -1,7 +1,8 @@
-"use strict";
-const path = require("path");
-const webpack = require("webpack");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+"use strict"
+const path = require("path")
+const webpack = require("webpack")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const cssLoaders = [
   {
     loader: "css-loader",
@@ -17,7 +18,7 @@ const cssLoaders = [
 module.exports = {
   context: __dirname + "/source",
   entry: {
-    site: "./javascripts/all.js",
+    'main': ['./javascripts/all.js', './stylesheets/site.scss'],
   },
   module: {
     rules: [
@@ -30,14 +31,17 @@ module.exports = {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader"
+          use: [
+            {loader: 'css-loader'},
+            {loader: "sass-loader"},
+          ]
         })
       },
     ],//end rules
   },
   output: {
-    path: __dirname + "/build/javascripts",
-    filename: "[name].bundle.js",
+    path: __dirname + "/build/",
+    filename: "js/[name].bundle.js",
   },
 
   plugins: [
@@ -45,12 +49,16 @@ module.exports = {
       minimize: true,
       debug: false
     }),
-    new ExtractTextPlugin({
-      filename:  (getPath) => {
-        return getPath("[name].bundle.css").replace("css/js", "css");
-      },
-      disable: false,
-      allChunks: true,
+    new ExtractTextPlugin('css/[name].bundle.css'),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      comments: false, // remove comments
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false,
+        drop_debugger: true
+      }
     }),
   ],
 };

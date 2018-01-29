@@ -5,6 +5,7 @@ const ready = function ready(fn) {
     document.addEventListener('DOMContentLoaded', fn);
   }
 }
+const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
 const parseSVG = function parseSVG(svg, width, height) {
 	let div = document.createElementNS('http://www.w3.org/1999/xhtml', 'div')

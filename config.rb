@@ -5,9 +5,9 @@
 # Per-page layout changes:
 #
 # With no layout
-page "/*.xml", layout: false
-page "/*.json", layout: false
-page "/*.txt", layout: false
+page '/*.xml', layout: false
+page '/*.json', layout: false
+page '/*.txt', layout: false
 
 set :relative_links, true
 # With alternative layout
@@ -18,24 +18,24 @@ set :relative_links, true
 #  which_fake_page: "Rendering a fake page with a local variable" }
 # General configuration
 activate :external_pipeline,
-  name: :webpack,
-  command: build? ?
-  "./node_modules/webpack/bin/webpack.js --bail -p" :
-  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
-  source: "build",
-  latency: 1
+         name: :webpack,
+         command: build? ?
+         './node_modules/webpack/bin/webpack.js --bail -p' :
+         './node_modules/webpack/bin/webpack.js --watch -d --progress --color',
+         source: 'build',
+         latency: 1
 
 configure :development do
   activate :livereload
 end
-require "sync"
+require 'sync'
 activate :sync
 
 activate :blog do |blog|
   blog.permalink = "/{title}.html"
   blog.sources = "articles/{year}/{month}-{day}-{title}.html"
   blog.summary_length = 250
-  blog.layout = "blog_layout"
+  blog.layout = 'blog_layout'
 end
 
 set :markdown_engine, :redcarpet
@@ -48,19 +48,19 @@ configure :build do
 end
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket                     = "chase.pursu.es" # The name of the S3 bucket you are targeting. This is globally unique.
-  s3_sync.region                     = "us-east-1"     # The AWS region for your bucket.
-  # s3_sync.aws_access_key_id          = "AWS KEY ID"
-  # s3_sync.aws_secret_access_key      = "AWS SECRET KEY"
+  s3_sync.bucket                     = 'chase.pursu.es' # The name of the S3 bucket you are targeting. This is globally unique.
+  s3_sync.region                     = 'us-east-1'     # The AWS region for your bucket.
+  # s3_sync.aws_access_key_id          = 'AWS KEY ID'
+  # s3_sync.aws_secret_access_key      = 'AWS SECRET KEY'
   s3_sync.delete                     = false # We delete stray files by default.
   s3_sync.after_build                = false # We do not chain after the build step by default.
   s3_sync.prefer_gzip                = true
   s3_sync.path_style                 = true
   s3_sync.reduced_redundancy_storage = false
-  s3_sync.acl                        = "public-read"
+  s3_sync.acl                        = 'public-read'
   s3_sync.encryption                 = false
-  s3_sync.prefix                     = ""
+  s3_sync.prefix                     = ''
   s3_sync.version_bucket             = false
-  s3_sync.index_document             = "index.html"
-  s3_sync.error_document             = "404.html"
+  s3_sync.index_document             = 'index.html'
+  s3_sync.error_document             = '404.html'
 end

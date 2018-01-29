@@ -6,11 +6,10 @@
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "Middleman" %></title>
-    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" %>
-    <link rel="preload" href="stylesheets/site.css" as="style">
-    <link rel="preload" href="javascripts/site.bundle.js" as="script">
-    <link rel="preload" href="javascripts/elm.js" as="script">
-    <%= stylesheet_link_tag "site.css" %>
+    <link rel="preload" href="css/main.bundle.css" as="style">
+    <link rel="preload" href="js/main.bundle.js" as="script">
+    <link rel="preload" href="js/elm.js" as="script">
+    <link rel="stylesheet" href="css/main.bundle.css" as="style">
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
 
   </head>
@@ -24,6 +23,6 @@
     </main>
   </body>
 
-  <%= javascript_include_tag "site.bundle.js"%>
-  <%= javascript_include_tag "elm.js"%>
+  <script src="/js/main.bundle.js"></script>
+  <script src="/js/elm.js"></script>
 </html>

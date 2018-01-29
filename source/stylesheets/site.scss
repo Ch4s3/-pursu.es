@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "milligram";
 @import "normalize";
 @import "variables";
 @import "native";
@@ -21,12 +22,12 @@ body {
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 0.9; }
+  from { opacity: 0; }
+  to   { opacity: 0.9; }
 }
 @keyframes fadeout {
-    from { opacity: 0.9; }
-    to   { opacity: 0; }
+  from { opacity: 0.9; }
+  to   { opacity: 0; }
 }
 
 hr {
