@@ -307,3 +307,5 @@ Notice under protocol, all of the assets are marked h2, which is shorthand for H
 ###Wrap Up###
 
 This should give you enough to start working with HTTP/2 and actual assets. I'll leave it as an exercise for readers to explore pushing multiple js files to the client and combining Webpack's lazy loading to push files on demand. In production, you will need to generate real certs and configure `prod.exs`, but that's out of the scope of this post. As always, if you have any questions, feel free to reach out and ask me.
+
+You can find the full source code [here](https://github.com/Ch4s3/http_2_today).
