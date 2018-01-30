@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes" name="viewport">
+    <meta http-equiv="Content-Security-Policy" content="worker-src 'self';">
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "Middleman" %></title>
     <link rel="preload" href="css/main.bundle.css" as="style">
     <link rel="preload" href="js/main.bundle.js" as="script">
+    <link rel="preload" href="js/triangles.bundle.js" as="script">
     <link rel="preload" href="js/elm.js" as="script">
     <link rel="stylesheet" href="css/main.bundle.css" as="style">
+    <script src="/js/triangles.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
 
   </head>
@@ -23,6 +26,6 @@
     </main>
   </body>
 
-  <script src="/js/main.bundle.js" data-turbolinks-track="reload"></script>
+  <script src="/js/main.bundle.js"></script>
   <script src="/js/elm.js"></script>
 </html>

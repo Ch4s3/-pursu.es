@@ -19,6 +19,7 @@ module.exports = {
   context: __dirname + "/source",
   entry: {
     'main': ['./javascripts/all.js', './stylesheets/site.scss'],
+    'triangles': ['./javascripts/triangles.js']
   },
   module: {
     rules: [
