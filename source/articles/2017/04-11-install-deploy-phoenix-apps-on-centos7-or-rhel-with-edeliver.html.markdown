@@ -1,7 +1,7 @@
 ---
 title: Install & Deploy Phoenix Apps on Centos7 or RHEL with edeliver
 date: 2017-04-11 23:48 UTC
-tags: elixir, phoenix, linux, devops, edeliver
+tags: Elixir, Phoenix, Linux, Devops, edeliver
 ---
 *The original gist can be found [here](https://gist.github.com/Ch4s3/77f5946972f7677b0ab4e3a9d9e22729)*
 
