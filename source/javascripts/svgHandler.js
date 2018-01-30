@@ -21,7 +21,7 @@ const responseHandler = function responseHandler() {
   }
 }
 
-export default function getSvg(url, width, height) {
+export default function getSvg(url) {
   const xhr = new XMLHttpRequest()
 	xhr.open('GET', url, true)
 	xhr.setRequestHeader('Content-Type', 'application/json')
