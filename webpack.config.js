@@ -1,22 +1,22 @@
-"use strict"
-const path = require("path")
-const webpack = require("webpack")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+'use strict'
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const cssLoaders = [
   {
-    loader: "css-loader",
+    loader: 'css-loader',
     options: {
       modules: true,
       minimize: true
     }
   },
   {
-    loader: "sass-loader"
+    loader: 'sass-loader'
   }
 ]
 module.exports = {
-  context: __dirname + "/source",
+  context: __dirname + '/source',
   entry: {
     'main': ['./javascripts/all.js', './stylesheets/site.scss'],
     'triangles': ['./javascripts/triangles.js']
@@ -26,23 +26,23 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: [
             {loader: 'css-loader'},
-            {loader: "sass-loader"},
+            {loader: 'sass-loader'},
           ]
         })
       },
     ],//end rules
   },
   output: {
-    path: __dirname + "/build/",
-    filename: "js/[name].bundle.js",
+    path: __dirname + '/build/',
+    filename: 'js/[name].bundle.js',
   },
 
   plugins: [
