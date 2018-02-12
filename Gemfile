@@ -10,5 +10,6 @@ gem 'middleman-s3_sync'
 gem 'middleman-syntax'
 # Utilities
 gem 'mime-types'
+gem 'nokogiri', '~> 1.8.1'
 gem 'pry'
 gem 'redcarpet'
