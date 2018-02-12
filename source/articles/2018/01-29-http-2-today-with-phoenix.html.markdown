@@ -229,7 +229,7 @@ Add the following functions to `lib\http_2_today_web\views\layout_view`.
   defmodule Http2TodayWeb.LayoutView do
     use Http2TodayWeb, :view
     def js_script_tag do
-      if Mix.env == :prod do
+      if env() == :prod do
         # In production we'll just reference the file
         """
           <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
@@ -246,14 +246,19 @@ Add the following functions to `lib\http_2_today_web\views\layout_view`.
 
     # Ditto for the css
     def css_link_tag do
-      if Mix.env == :prod do
+      if env() == :prod do
         "<link rel=\"stylesheet\" href=\"<%= static_path(@conn, \"/css/app.css\") %>" 
       else
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://localhost:8080/css/app.css\" />"
       end
     end
+
+    defp env do
+      unquote(Mix.env())
+    end
   end
 ```
+*Note, this is update from the original version of this post to use `unquote/1` to evaluate the environment at compile time since Mix isn't available in a running production app. Thanks to [OvermindDL1](https://twitter.com/OvermindDL1) for the feedback!*
 
 This will load assets from the dev server in dev mode and server the bundled files in production. Now we can use these function in `lib/http_2_today_web/templates/layout/app.html.eex`.
 
