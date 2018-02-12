@@ -1,4 +1,3 @@
-# require 'pry'
 require 'algoliasearch'
 require 'redcarpet'
 require 'redcarpet'
@@ -6,8 +5,8 @@ require 'redcarpet'
 module Middleman
   # utility class for syncing articles with algolia
   class AlgoliaSync < ::Middleman::Extension
-    def initialize(app, options_hash={}, &block)
-      env_vars = YAML.load(File.open('secrets.yml').read)
+    def initialize(app, options_hash = {}, &block)
+      env_vars = YAML.safe_load(File.open('secrets.yml').read)
       Algolia.init application_id: env_vars['application_id'],
                    api_key: env_vars['api_key']
       @algolia_index = Algolia::Index.new('posts')
