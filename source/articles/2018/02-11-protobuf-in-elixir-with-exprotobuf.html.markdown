@@ -48,7 +48,7 @@ After running `mix deps.get`, we will create a simple router module to serve res
     end
 
     post "/androids" do
-      send_resp(501, "nothing to post to yet")
+      send_resp(conn, 501, "nothing to post to yet")
     end
 
     match _ do
@@ -56,6 +56,7 @@ After running `mix deps.get`, we will create a simple router module to serve res
     end
   end
 ```
+*There is a correction as of 2/13/18 in the post function, the original version was missing the conn arg.*
 
 Next, let's register this with the supervisor in `lib/proto_man/application.ex` 
 
